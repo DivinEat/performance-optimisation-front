@@ -8,9 +8,9 @@ class TestController extends Controller
 {
     public function all()
     {
-        $response = Http::get('http://localhost:8000/api/all');
+        $response = Http::get('http://app-back/api/all');
 
-        dd($response);
+        dd($response->json());
     }
 
     public function getTable()
