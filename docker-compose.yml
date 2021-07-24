@@ -1,0 +1,20 @@
+version: "3.4"
+services:
+  client:
+    image: node:alpine3.10
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/home/node/app
+    working_dir: /home/node/app
+    command: sh -c "yarn install --no-update-notifier; yarn start --no-update-notifier"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: front_default
+
+volumes:
+  db-data: { }
